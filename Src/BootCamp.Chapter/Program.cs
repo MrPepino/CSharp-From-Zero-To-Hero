@@ -29,8 +29,6 @@ namespace BootCamp.Chapter
 
             Console.WriteLine("BMI: " + Math.Round(bmi, 2));
 
-
-
             // input person 2
             Console.Write("Enter a first name: ");
             firstName = Console.ReadLine();
