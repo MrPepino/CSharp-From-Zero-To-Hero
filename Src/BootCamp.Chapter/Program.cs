@@ -26,7 +26,6 @@ namespace BootCamp.Chapter
             // calculate BMI person 1
             double heightInMeters = height / 100.0;
             double bmi = weight / (heightInMeters * heightInMeters);
-
             Console.WriteLine("BMI: " + Math.Round(bmi, 2));
 
             // input person 2
@@ -48,7 +47,6 @@ namespace BootCamp.Chapter
             // calculate BMI person 2
             heightInMeters = height / 100.0;
             bmi = weight / (heightInMeters * heightInMeters);
-
             Console.WriteLine("BMI: " + Math.Round(bmi, 2));
         }
     }
