@@ -39,7 +39,7 @@ namespace BootCamp.Chapter
         {
             if (string.IsNullOrEmpty(message))
             {
-                return null;
+                return "";
             }
 
             var words = message.Split(Environment.NewLine);
@@ -69,6 +69,7 @@ namespace BootCamp.Chapter
 
         public static void AddTopOrBottomBorder(StringBuilder table, int padding, int length)
         {
+            // padding * 2 to take left and right side into account
             table.Append("+");
             table.Append($"{String.Empty.PadRight(length + (padding * 2), '-')}");
             table.AppendLine("+");
@@ -76,6 +77,7 @@ namespace BootCamp.Chapter
 
         public static void AddEmptyLineBorders(StringBuilder table, int padding, int length)
         {
+            // add a line for every padding and place straight lines with same length of spaces in between
             for (var i = 0; i < padding; i++)
             {
                 table.Append("|");
@@ -86,6 +88,7 @@ namespace BootCamp.Chapter
 
         public static void AddTextBorders(StringBuilder table, string[] text, int padding, int length)
         {
+            // minus longest word length with current word length to calculate how much spaces after word to reach same length as longest word
             foreach (var word in text)
             {
                 table.Append("|");
