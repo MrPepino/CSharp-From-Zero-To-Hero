@@ -1,4 +1,6 @@
-﻿namespace BootCamp.Chapter
+﻿using System.Text;
+
+namespace BootCamp.Chapter
 {
     /// <summary>
     /// Part 1.
@@ -34,6 +36,9 @@
         /// </summary>
         public static string Build(string message, int padding)
         {
+            var messageLength = message.Length;
+            var sb = new StringBuilder();
+            
             return "";
         }
     }
