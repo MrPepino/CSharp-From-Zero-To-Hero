@@ -37,16 +37,20 @@ namespace BootCamp.Chapter
         /// </summary>
         public static string Build(string message, int padding)
         {
+            if (string.IsNullOrEmpty(message))
+            {
+                return null;
+            }
+
             var words = message.Split(Environment.NewLine);
             var longestWordLength = GetLongestWordLength(words);
-            var messageLength = message.Length;
             var sb = new StringBuilder();
 
-            AddTopOrBottomBorder(sb, padding, messageLength);
+            AddTopOrBottomBorder(sb, padding, longestWordLength);
             AddEmptyLineBorders(sb, padding, longestWordLength);
             AddTextBorders(sb, words, padding, longestWordLength);
             AddEmptyLineBorders(sb, padding, longestWordLength);
-            AddTopOrBottomBorder(sb, padding, messageLength);
+            AddTopOrBottomBorder(sb, padding, longestWordLength);
             return sb.ToString();
         }
 
@@ -66,7 +70,7 @@ namespace BootCamp.Chapter
         public static void AddTopOrBottomBorder(StringBuilder table, int padding, int length)
         {
             table.Append("+");
-            table.Append($"{String.Empty.PadLeft(length + (padding * 2), '-')}");
+            table.Append($"{String.Empty.PadRight(length + (padding * 2), '-')}");
             table.AppendLine("+");
         }
 
@@ -75,7 +79,7 @@ namespace BootCamp.Chapter
             for (var i = 0; i < padding; i++)
             {
                 table.Append("|");
-                table.Append($"{String.Empty.PadLeft(length + (padding * 2), ' ')}");
+                table.Append($"{String.Empty.PadRight(length + (padding * 2), ' ')}");
                 table.AppendLine("|");
             }
         }
@@ -85,9 +89,9 @@ namespace BootCamp.Chapter
             foreach (var word in text)
             {
                 table.Append("|");
-                table.Append(String.Empty.PadLeft(padding, ' '));
+                table.Append(String.Empty.PadRight(padding, ' '));
                 table.Append($"{word}");
-                table.Append(String.Empty.PadLeft(padding, ' '));
+                table.Append(String.Empty.PadRight(length - word.Length + padding, ' '));
                 table.AppendLine("|");
             }
         }
