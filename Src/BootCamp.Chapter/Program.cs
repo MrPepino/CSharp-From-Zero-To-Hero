@@ -9,6 +9,8 @@ namespace BootCamp.Chapter
             Console.WriteLine(TextTable.Build("Hello", 0));
             Console.WriteLine("");
             Console.WriteLine(TextTable.Build($"Hello{Environment.NewLine}World!", 0));
+            Console.WriteLine("");
+            Console.WriteLine(TextTable.Build($"Hello", 1));
             // Print each of the statistical output using Text Table with padding 3:
             // - FindHighestBalanceEver
             // - FindPersonWithBiggestLoss
