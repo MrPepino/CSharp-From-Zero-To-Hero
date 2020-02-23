@@ -39,7 +39,27 @@ namespace BootCamp.Chapter
             var messageLength = message.Length;
             var sb = new StringBuilder();
             
-            return "";
+            GenerateTopOrBottomBorder(sb, messageLength);
+            GenerateSideBorder(sb, message);
+            GenerateTopOrBottomBorder(sb, messageLength);
+            return sb.ToString();
+        }
+        
+        public static void GenerateSideBorder(StringBuilder sb, string message)
+        {
+            sb.Append("|");
+            sb.Append(message);
+            sb.AppendLine("|");
+        }
+
+        public static void GenerateTopOrBottomBorder(StringBuilder sb, int length)
+        {
+            sb.Append("+");
+            for (var i = 0; i < length; i++)
+            {
+                sb.Append("-");
+            }
+            sb.AppendLine("+");
         }
     }
 }
